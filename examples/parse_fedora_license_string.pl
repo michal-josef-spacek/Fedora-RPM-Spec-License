@@ -28,3 +28,20 @@ print join "\n", map { '- '. $_ } $obj->licenses;
 # Format: 2
 # Contain licenses:
 # - MIT
+
+# Output with 'MIT AND FSFAP' input:
+# Fedora license string: MIT AND FSFAP
+# Format: 2
+# Contain licenses:
+# - FSFAP
+# - MIT
+
+# Output with '(GPL+ or Artistic) and Artistic 2.0 and (MIT or GPLv2)' input:
+# Fedora license string: (GPL+ or Artistic) and Artistic 2.0 and (MIT or GPLv2)
+# Format: 1
+# Contain licenses:
+# - Artistic
+# - Artistic 2.0
+# - GPL+
+# - GPLv2
+# - MIT
