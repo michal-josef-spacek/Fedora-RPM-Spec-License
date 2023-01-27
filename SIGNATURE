@@ -1,0 +1,61 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.87.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: RIPEMD160
+
+SHA256 c1819bf07c5dce60f940ccb79d8f1063615b2fc8ab412b163a9c5dbdef28732a CONCEPT
+SHA256 1c0e4096de86e4b3362ede70d53b0747af686e4600e523a5bbfe72de8c096760 Changes
+SHA256 e9ae42c89b2f406c60c950a2a41695eabc2d324c0a9cd90d165e87c4e8a731bd LICENSE
+SHA256 8c4918db8ce1652b63832a8132ddfda95510258774270590abe596cfbee1d90a License.pm
+SHA256 a13388d72ea9a8363802db30648e6ad121b1aeebb220e755e63f6bb551dab503 MANIFEST
+SHA256 5c9b44b6e4d6c67668991542b4d94feb5d5666e4cab65fe4e7ffa35311badf07 META.yml
+SHA256 4e9524e634bf1731166b6de7ae8a7c275a5b8db1f67a08b34b6ea4e514a2e152 Makefile.PL
+SHA256 438571632054c5f6c6f818aac25a1d2665599837a9e5712b843d1dd17726b46a README
+SHA256 45eac7f886320805de2bcc6457aa823a30a817a13cf78200050ca00d10bd99ad examples/parse_fedora_license_string.pl
+SHA256 67d139199c03b8bf8447a5a62f0d0b6dc1bd5bf6dbe04de6d21998c577823ed6 inc/Module/Install.pm
+SHA256 8bd506c33fb78f10f6451413e931ca23541fcc4eebe05fcb7c7c9577341223c4 inc/Module/Install/AuthorRequires.pm
+SHA256 1b5430a46a35142ef8914d8c745196fca825defc9dfa7e389299bf294613825e inc/Module/Install/AuthorTests.pm
+SHA256 6ebcc53a161dd5dc0aae69e4704575f2b00181901d768a82e26722a309cfdbe4 inc/Module/Install/Base.pm
+SHA256 d3f8c839d03fd21c197d05362dbb277cd7cadb15da6390d124b61e851f15146e inc/Module/Install/Can.pm
+SHA256 e9e72e18921c10c87bc4ea4c20af83e52015b9f5775d00ac64073042403717ca inc/Module/Install/Fetch.pm
+SHA256 a7a681bf2c9eee58a372cb642ffe42b0301d1200432ba8de9f7791cd1ecc9827 inc/Module/Install/Makefile.pm
+SHA256 aa887fa65a5eb6bbd1805706ce298b3f3cd55b353ecfd37aa7d35ae419331a49 inc/Module/Install/Metadata.pm
+SHA256 53825bc78e4c910b888160bc148c8bc211be58e02b99c8edcbf4854f95faa049 inc/Module/Install/ReadmeFromPod.pm
+SHA256 26b166ff62aacdb55317d1659f160aa4935097eea9810ea980e6d747206b5dc0 inc/Module/Install/Win32.pm
+SHA256 5f73a6851a91ea44e65b924f918743ad6e860620ad7a38a39d0295e0c5652a9f inc/Module/Install/WriteAll.pm
+SHA256 f559fd4d2a7a76b4715900a09a7ff15bfdbbc80790b3077c2fa725651aa6a997 t/Fedora-RPM-Spec-License/01-use.t
+SHA256 51b055a857a5c7a22b24f5c1e059a23f1048cc1e8a102ee6dd4678c37aefab21 t/Fedora-RPM-Spec-License/02-version.t
+SHA256 495210b669d37123c41b01f7cbd42390122b310c02e223c956042a5d190bf307 t/Fedora-RPM-Spec-License/03-new.t
+SHA256 702a448c19b3ea249f8c66cbf28127905678877cc5ea92505de037a5cac885ea t/Fedora-RPM-Spec-License/04-format.t
+SHA256 98806c7d332cba5361e8153ffce825be27e209d22c1c16f2dae29f52621ce0d8 t/Fedora-RPM-Spec-License/05-licenses.t
+SHA256 bca9c34f9bf198f0b930f1aa6d2f9664b4d3fb990395ba03f62c244a2888cea2 t/Fedora-RPM-Spec-License/06-parse.t
+SHA256 c24fd1de9ae69bd03d737481edaf9ca328454eb7a1127ac0a1b03f913b814f2f t/Fedora-RPM-Spec-License/07-reset.t
+SHA256 2dbf875a92ce83f018eba622a0425c9baa93153c6750aa9edf82a4846f5f71ff xt/Fedora-RPM-Spec-License/01-pod_coverage.t
+SHA256 1648c52a39e0a66597f72e505afc9d2283bee5e181c3927dc71eb1f9ce0b2f55 xt/Fedora-RPM-Spec-License/02-pod.t
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBAwAdFiEEbEiOwSagsghKcON6ojV9Rpe/B8sFAmPUAWcACgkQojV9Rpe/
+B8tQexAAktwnKbMOscUToj48sRdoxFNbbC/MWM5FnyCZ75Kz01/Oc8VCgG5KJDlC
+2H1fmhj3y9NDT+Y7vZ0Hr5gqp3U/7o1vBgEhj0i25btLUs/PWBQdWdx4lQKB3c/b
+X2qKD5cjD9OP+Mt0Zx/BxVkHBFHx/zFs7qpgS7wIVsgajw8LQ7PMtUXw2I5UXwb9
+G+xRGm36ohBOk7wrpaoS/HcNou2JCxfelXEYQ94cUz5PClvsCtY0dygH8f6wVmM5
+XVYEMNvVUTJK+tZtP9EtXgIxnz0Hstqe2mZE6RXieGednaaLw7lPSRUN1Qzac9vL
+cLd7J+B2OAknBfCVj5/+FyGNObneRlKMQlw8juB8jrQRqMLRrL60UeBcmXJLdwob
+YcQxbNrbhWDDFcw66fTDP+yuMHVhu8oG5N3mhdUBCNUrxSwoRYCuGyCkELSYEV4s
+YwpyGu+rBuBgrGOKXltsO2ptEDSUa6Y+rF6GBXJvEGnN4uzI1isQfMDtfcUwVRez
+X8+3Z9cnTaZgIAzm3Lx4FdglBAgjbAceGdXDFmma/dbkJ0/Tw9OkTQ1Q4eEmRO5/
+cBdC7nlTYhfOiyB4ln82vcYoPjlwUjSb63vnpvlWVCoRCkWX7D8aKRUNhCysoGDw
+b9xkshwU3w956XIaR4kEtc3auFbNLwpiXdtCMqN8zkJgmfyCizI=
+=QKCy
+-----END PGP SIGNATURE-----
