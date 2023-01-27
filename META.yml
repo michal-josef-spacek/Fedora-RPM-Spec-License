@@ -20,6 +20,7 @@ meta-spec:
 name: Fedora-RPM-Spec-License
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt

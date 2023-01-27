@@ -1,5 +1,6 @@
 Changes
 CONCEPT
+examples/parse_fedora_license_string.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm
