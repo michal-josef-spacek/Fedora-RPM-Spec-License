@@ -3,6 +3,8 @@ abstract: 'Handle Fedora RPM spec license string.'
 author:
   - 'Michal Josef Spacek <skim@cpan.org>'
 build_requires:
+  English: 0
+  Error::Pure::Utils: 0
   ExtUtils::MakeMaker: 6.59
   Test::More: 0
   Test::NoWarnings: 0
@@ -22,6 +24,12 @@ no_index:
     - t
     - xt
 requires:
+  Class::Utils: 0
+  Error::Pure: 0
+  License::SPDX: 0
+  List::Util: 0
+  Parse::RecDescent: 0
+  Readonly: 0
   perl: 5.8.0
 resources:
   bugtracker: https://github.com/michal-josef-spacek/Fedora-RPM-Spec-License/issues
