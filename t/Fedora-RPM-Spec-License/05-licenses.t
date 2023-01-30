@@ -21,15 +21,15 @@ is_deeply(
 
 # Test.
 $obj = Fedora::RPM::Spec::License->new;
-$obj->parse('MIT AND GPL');
+$obj->parse('MIT AND GPL-1.0-only');
 @ret = $obj->licenses;
 is_deeply(
 	\@ret,
 	[
-		'GPL',
+		'GPL-1.0-only',
 		'MIT',
 	],
-	'Two licenses with AND in 2 format (MIT AND GPL).',
+	'Two licenses with AND in 2 format (MIT AND GPL-1.0-only).',
 );
 
 # Test.

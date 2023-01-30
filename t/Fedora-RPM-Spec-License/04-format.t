@@ -15,9 +15,9 @@ is($ret, 2, 'Fedora format is 2 (MIT).');
 
 # Test.
 $obj = Fedora::RPM::Spec::License->new;
-$obj->parse('MIT AND GPL');
+$obj->parse('MIT AND GPL-1.0-only');
 $ret = $obj->format;
-is($ret, 2, 'Fedora format is 2 (MIT AND GPL).');
+is($ret, 2, 'Fedora format is 2 (MIT AND GPL-1.0-only).');
 
 # Test.
 $obj = Fedora::RPM::Spec::License->new;
