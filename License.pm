@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
+use English;
 use Error::Pure qw(err);
 use License::SPDX;
 use List::Util qw(none);
@@ -37,6 +38,9 @@ my $GRAMMAR2 = <<'END';
 		$item[2];
 	} | identifier
 	identifier: /[\w\-\.]+/ {
+		if (! License::SPDX->new->check_license($item[1])) {
+			die "License '$item[1]' isn't SPDX license.\n";
+		}
 		$item[1];
 	}
 END
@@ -146,7 +150,12 @@ sub _process_format_1 {
 sub _process_format_2 {
 	my ($self, $fedora_license_string) = @_;
 
-	$self->{'result'}->{'res'} = $self->{'parser2'}->start($fedora_license_string);
+	eval {
+		$self->{'result'}->{'res'} = $self->{'parser2'}->start($fedora_license_string);
+	};
+	if ($EVAL_ERROR) {
+		err $EVAL_ERROR;
+	}
 
 	return;
 }
@@ -255,6 +264,9 @@ Returns undef.
  licenses():
          No Fedora license string processed.
 
+ parse():
+         License '%s' isn't SPDX license.
+
 =head1 EXAMPLE
 
 =for comment filename=parse_fedora_license_string.pl
@@ -308,6 +320,7 @@ Returns undef.
 =head1 DEPENDENCIES
 
 L<Class::Utils>,
+L<English>,
 L<Error::Pure>,
 L<License::SPDX>,
 L<List::Util>,

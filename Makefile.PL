@@ -19,6 +19,7 @@ perl_version 5.008;
 readme_from 'License.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
+requires 'English' => 0;
 requires 'Error::Pure' => 0;
 requires 'License::SPDX' => 0;
 requires 'List::Util' => 0;

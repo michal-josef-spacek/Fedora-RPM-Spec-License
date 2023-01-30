@@ -115,8 +115,8 @@ EXAMPLE
      # - MIT
 
 DEPENDENCIES
-    Class::Utils, Error::Pure, License::SPDX, List::Util, Parse::RecDescent,
-    Readonly.
+    Class::Utils, English, Error::Pure, License::SPDX, List::Util,
+    Parse::RecDescent, Readonly.
 
 SEE ALSO
     rpm-spec-license
