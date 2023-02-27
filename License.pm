@@ -81,7 +81,9 @@ sub licenses {
 		err 'No Fedora license string processed.';
 	}
 
-	return sort @{$self->{'result'}->{'licenses'}};
+	my @ret = sort @{$self->{'result'}->{'licenses'}};
+
+	return @ret;
 }
 
 sub parse {
