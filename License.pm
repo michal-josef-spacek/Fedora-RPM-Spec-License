@@ -54,7 +54,7 @@ my $GRAMMAR2 = <<'END';
 	}
 END
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 sub new {
 	my ($class, @params) = @_;
@@ -412,6 +412,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.03
+0.04
 
 =cut
