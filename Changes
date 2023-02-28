@@ -1,6 +1,7 @@
 0.03
  - Add license exceptions.
  - Fix licenses() return list.
+ - Improve example in doc.
  - Regen README file.
 
 0.02 2023-01-30T09:36:04+01:00

@@ -336,6 +336,12 @@ Returns undef.
  print 'Format: '.$obj->format."\n";
  print "Contain licenses:\n";
  print join "\n", map { '- '. $_ } $obj->licenses;
+ print "\n";
+ if ($obj->exceptions) {
+         print "Contain exceptions:\n";
+         print join "\n", map { '- '. $_ } $obj->exceptions;
+         print "\n";
+ }
 
  # Output with 'MIT' input:
  # Fedora license string: MIT
@@ -359,6 +365,14 @@ Returns undef.
  # - GPL+
  # - GPLv2
  # - MIT
+
+ # Output with 'LGPL-3.0-only WITH LGPL-3.0-linking-exception' input:
+ # Fedora license string: LGPL-3.0-only WITH LGPL-3.0-linking-exception
+ # Format: 2
+ # Contain licenses:
+ # - LGPL-3.0-only
+ # Contain exceptions:
+ # - LGPL-3.0-linking-exception
 
 =head1 DEPENDENCIES
 
