@@ -67,6 +67,9 @@ ERRORS
      licenses():
              No Fedora license string processed.
 
+     parse():
+             License '%s' isn't SPDX license.
+
 EXAMPLE
      use strict;
      use warnings;
