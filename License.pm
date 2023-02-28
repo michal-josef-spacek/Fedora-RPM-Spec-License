@@ -31,8 +31,11 @@ my $GRAMMAR2 = <<'END';
 	expression: and_expr 'OR' expression {
 		[$item[1], '||', $item[3]],
 	} | and_expr
-	and_expr: brack_expression 'AND' and_expr {
+	and_expr: with_expr 'AND' and_expr {
 		[$item[1], '&&', $item[3]],
+	} | with_expr
+	with_expr: brack_expression 'WITH' exception {
+		[$item[1], 'with', $item[3]],
 	} | brack_expression
 	brack_expression: '(' expression ')' {
 		$item[2];
@@ -40,6 +43,12 @@ my $GRAMMAR2 = <<'END';
 	identifier: /[\w\-\.]+/ {
 		if (! License::SPDX->new->check_license($item[1])) {
 			die "License '$item[1]' isn't SPDX license.\n";
+		}
+		$item[1];
+	}
+	exception: /[\w\-\.]+/ {
+		if (! License::SPDX->new->check_exception($item[1])) {
+			die "License '$item[1]' isn't SPDX license exception.\n";
 		}
 		$item[1];
 	}
@@ -62,6 +71,18 @@ sub new {
 	$self->{'parser2'} = Parse::RecDescent->new($GRAMMAR2);
 
 	return $self;
+}
+
+sub exceptions {
+	my $self = shift;
+
+	if (! $self->{'result'}->{'status'}) {
+		err 'No Fedora license string processed.';
+	}
+
+	my @ret = sort @{$self->{'result'}->{'exceptions'}};
+
+	return @ret;
 }
 
 sub format {
@@ -94,7 +115,8 @@ sub parse {
 	$self->{'result'}->{'input'} = $fedora_license_string;
 
 	if ($fedora_license_string =~ m/AND/ms
-		|| $fedora_license_string =~ m/OR/ms) {
+		|| $fedora_license_string =~ m/OR/ms
+		|| $fedora_license_string =~ m/\s+WITH\s+/ms) {
 
 		$self->{'result'}->{'format'} = 2;
 		$self->_process_format_2($fedora_license_string);
@@ -114,7 +136,7 @@ sub parse {
 	}
 	$self->{'result'}->{'status'} = 1;
 
-	$self->_unique_licenses($self->{'result'}->{'res'});
+	$self->_unique($self->{'result'}->{'res'});
 
 	return;
 }
@@ -131,6 +153,7 @@ sub _init {
 	my $self = shift;
 
 	$self->{'result'} = {
+		'exceptions' => [],
 		'format' => undef,
 		'input' => undef,
 		'licenses' => [],
@@ -162,16 +185,24 @@ sub _process_format_2 {
 	return;
 }
 
-sub _unique_licenses {
+sub _unique {
 	my ($self, $value) = @_;
 
 	if (ref $value eq '') {
-		if ($value ne '||' && $value ne '&&') {
-			push @{$self->{'result'}->{'licenses'}}, $value;
+		if ($value eq 'with') {
+			$self->{'_exception'} = 1;
+		}
+		if ($value ne '||' && $value ne '&&' && $value ne 'with') {
+			if ($self->{'_exception'}) {
+				push @{$self->{'result'}->{'exceptions'}}, $value;
+				$self->{'_exception'} = 0;
+			} else {
+				push @{$self->{'result'}->{'licenses'}}, $value;
+			}
 		}
 	} elsif (ref $value eq 'ARRAY') {
 		foreach my $item (@{$value}) {
-			$self->_unique_licenses($item);
+			$self->_unique($item);
 		}
 	}
 
@@ -195,6 +226,7 @@ Fedora::RPM::Spec::License - Class for handle Fedora license string.
  use Fedora::RPM::Spec::License;
 
  my $obj = Fedora::RPM::Spec::License->new(%params);
+ my @exceptions = $obj->exceptions;
  my $fedora_license_format = $obj->format;
  my @licenses = $obj->licenses;
  $obj->parse($fedora_license_string);
@@ -215,6 +247,14 @@ identifiers.
 Constructor.
 
 Returns instance of object.
+
+=head2 C<exceptions>
+
+ my @exceptions = $obj->exceptions;
+
+Get exceptions used in the Fedora license string sorted alphabetically.
+
+Returns array of strings.
 
 =head2 C<format>
 
@@ -268,6 +308,7 @@ Returns undef.
 
  parse():
          License '%s' isn't SPDX license.
+         License '%s' isn't SPDX license exception.
 
 =head1 EXAMPLE
 

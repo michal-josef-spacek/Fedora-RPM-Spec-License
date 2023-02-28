@@ -5,6 +5,7 @@ SYNOPSIS
      use Fedora::RPM::Spec::License;
 
      my $obj = Fedora::RPM::Spec::License->new(%params);
+     my @exceptions = $obj->exceptions;
      my $fedora_license_format = $obj->format;
      my @licenses = $obj->licenses;
      $obj->parse($fedora_license_string);
@@ -22,6 +23,13 @@ METHODS
     Constructor.
 
     Returns instance of object.
+
+  "exceptions"
+     my @exceptions = $obj->exceptions;
+
+    Get exceptions used in the Fedora license string sorted alphabetically.
+
+    Returns array of strings.
 
   "format"
      my $fedora_license_format = $obj->format;
@@ -69,6 +77,7 @@ ERRORS
 
      parse():
              License '%s' isn't SPDX license.
+             License '%s' isn't SPDX license exception.
 
 EXAMPLE
      use strict;

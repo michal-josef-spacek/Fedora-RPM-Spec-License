@@ -1,4 +1,5 @@
 0.03
+ - Add license exceptions.
  - Fix licenses() return list.
  - Regen README file.
 

@@ -4,7 +4,7 @@ use warnings;
 use English;
 use Error::Pure::Utils qw(clean);
 use Fedora::RPM::Spec::License;
-use Test::More 'tests' => 5;
+use Test::More 'tests' => 6;
 use Test::NoWarnings;
 
 # Test.
@@ -33,4 +33,13 @@ eval {
 };
 is($EVAL_ERROR, "License 'BAD' isn't SPDX license.\n",
 	"License 'BAD' isn't SPDX license (MIT AND BAD).");
+clean();
+
+# Test.
+$obj = Fedora::RPM::Spec::License->new;
+eval {
+	$obj->parse('MIT WITH BAD');
+};
+is($EVAL_ERROR, "License 'BAD' isn't SPDX license exception.\n",
+	"License 'BAD' isn't SPDX license exception (MIT WITH BAD).");
 clean();

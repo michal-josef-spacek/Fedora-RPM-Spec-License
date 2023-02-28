@@ -4,7 +4,7 @@ use warnings;
 use English;
 use Error::Pure::Utils qw(clean);
 use Fedora::RPM::Spec::License;
-use Test::More 'tests' => 8;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 
 # Test.
@@ -42,6 +42,18 @@ $obj = Fedora::RPM::Spec::License->new;
 $obj->parse('GPLv3+ and (ASL 2.0 or MIT)');
 $ret = $obj->format;
 is($ret, 1, 'Fedora format is 1 (GPLv3+ and (ASL 2.0 or MIT)).');
+
+# Test.
+$obj = Fedora::RPM::Spec::License->new;
+$obj->parse('MIT and Apache-2.0-WITH-LLVM-exception');
+$ret = $obj->format;
+is($ret, 1, 'Fedora format is 1 (MIT and Apache-2.0-WITH-LLVM-exception).');
+
+# Test.
+$obj = Fedora::RPM::Spec::License->new;
+$obj->parse('LGPL-3.0-only WITH LGPL-3.0-linking-exception');
+$ret = $obj->format;
+is($ret, 2, 'Fedora format is 2 (LGPL-3.0-only WITH LGPL-3.0-linking-exception).');
 
 # Test.
 $obj = Fedora::RPM::Spec::License->new;
